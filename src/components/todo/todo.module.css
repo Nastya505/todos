@@ -1,0 +1,17 @@
+.todo{
+    width: 100%;
+    display: flex;
+    background-color: #ccc;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.todoCompleted{
+    width: 100%;
+    display: flex;
+    background-color: #f4f4f4;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: line-through;
+}
