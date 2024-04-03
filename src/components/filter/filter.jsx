@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../button/button";
 import styles from "./filter.module.css";
 
-const Filter = ({ setFilter }) => {
-  const [activeButton, setActiveButton] = useState(null);
-
+const Filter = ({ filter, setFilter }) => {
+    
   const handleButtonClick = (filter) => {
     setFilter(filter);
-    setActiveButton(filter);
   };
 
   return (
@@ -15,17 +13,17 @@ const Filter = ({ setFilter }) => {
       <Button
         text="Все"
         setFilter={() => handleButtonClick("all")}
-        isActive={activeButton === "all"}
+        isActive={filter === "all"}
       />
       <Button
         text="Выполненные"
         setFilter={() => handleButtonClick("completed")}
-        isActive={activeButton === "completed"}
+        isActive={filter === "completed"}
       />
       <Button
         text="Невыполненные"
         setFilter={() => handleButtonClick("uncompleted")}
-        isActive={activeButton === "uncompleted"}
+        isActive={filter === "uncompleted"}
       />
     </div>
   );

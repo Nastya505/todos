@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Filter setFilter={setFilter} />
+      <Filter filter={filter} setFilter={setFilter} />
       <Todos todos={filteredTodos} />
     </div>
   );
