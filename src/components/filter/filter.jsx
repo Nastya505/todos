@@ -3,7 +3,7 @@ import Button from "../button/button";
 import styles from "./filter.module.css";
 
 const Filter = ({ filter, setFilter }) => {
-    
+
   const handleButtonClick = (filter) => {
     setFilter(filter);
   };

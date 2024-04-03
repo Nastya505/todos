@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Todos from "../todos/todos";
 import Filter from "../filter/filter";
 
@@ -11,16 +11,17 @@ function App() {
   const getTodos = async () => {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/users/1/todos"
-    );
+      );
     const data = await response.json();
     setTodos(data);
   };
-
+  
   React.useEffect(() => {
     getTodos();
   }, []);
-
-  const filteredTodos = todos.filter((todo) => {
+  
+  const filteredTodos = useMemo(() => {
+    return todos.filter((todo) => {
     if (filter === "all") {
       return true;
     }
@@ -31,11 +32,13 @@ function App() {
       return !todo.completed;
     }
   });
+}, [todos, filter]);
+
 
   return (
     <div className={styles.app}>
       <Filter filter={filter} setFilter={setFilter} />
-      <Todos todos={filteredTodos} />
+      <Todos todos={filteredTodos} setTodos={setTodos} />
     </div>
   );
 }
